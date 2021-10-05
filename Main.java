@@ -11,6 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
 
+
+        // Инициализация массивов
         short[] a = new short[aLength];
         initFirstArray(a);
 
@@ -19,8 +21,8 @@ public class Main {
 
         double[][] arr = new double[arrHeight][arrLength];
 
-        for (int i = 0; i < arrHeight; i++) {
-            for (int j = 0; j < arrLength; j++) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
                 if (a[i] == 14) {
                     arr[i][j] = formula1(x[j]);
                 } else if (a[i] == 2 || a[i] == 8 || a[i] == 12 || a[i] == 16) {
@@ -38,10 +40,8 @@ public class Main {
 
     // Инициализация массива a
     public static void initFirstArray(short[] arr) {
-        int idx = 0;
-        for (short i = aStart; i < aFinish; i += 2) {
+        for (short i = aStart, idx = 0; i < aFinish; i += 2, idx++) {
             arr[idx] = i;
-            idx++;
         }
     }
 
@@ -69,9 +69,9 @@ public class Main {
 
     // Метод вывода двумерного массива arr
     public static void printAnswer(double[][] ansArr) {
-        for (int i = 0; i < arrHeight; i++) {
-            for (int j = 0; j < arrLength; j++) {
-                System.out.printf("%6.3f ", ansArr[i][j]);
+        for (int i = 0; i < ansArr.length; i++) {
+            for (int j = 0; j < ansArr[i].length; j++) {
+                System.out.printf("%6.3f", ansArr[i][j]);
             }
             System.out.println();
         }
